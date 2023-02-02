@@ -1,4 +1,7 @@
 package com.example.demo.vista;
 
-public interface EtapaRepository extends org.springframework.data.jpa.repository.JpaRepository<com.example.demo.modelo.Etapa, java.lang.Integer> {
+import com.example.demo.modelo.Etapa;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EtapaRepository extends JpaRepository<Etapa, Integer> {
 }

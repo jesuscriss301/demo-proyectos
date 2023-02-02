@@ -1,4 +1,7 @@
 package com.example.demo.vista;
 
-public interface BitacoraRepository extends org.springframework.data.jpa.repository.JpaRepository<com.example.demo.modelo.Bitacora, java.lang.Integer> {
+import com.example.demo.modelo.Bitacora;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BitacoraRepository extends JpaRepository<Bitacora, Integer> {
 }

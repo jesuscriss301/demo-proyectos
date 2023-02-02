@@ -1,4 +1,7 @@
 package com.example.demo.vista;
 
-public interface IdfotografiaRepository extends org.springframework.data.jpa.repository.JpaRepository<com.example.demo.modelo.Idfotografia, java.lang.Integer> {
+import com.example.demo.modelo.Idfotografia;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IdfotografiaRepository extends JpaRepository<Idfotografia, Integer> {
 }
