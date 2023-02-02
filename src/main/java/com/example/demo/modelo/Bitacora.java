@@ -1,16 +1,24 @@
 package com.example.demo.modelo;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "bitacora")
 public class Bitacora {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idBitacora", nullable = false)
     private Integer id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "idTarea", nullable = false)
+    private Tarea idTarea;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idProyecto", nullable = false)
@@ -27,44 +35,5 @@ public class Bitacora {
     @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Proyecto getIdProyecto() {
-        return idProyecto;
-    }
-
-    public void setIdProyecto(Proyecto idProyecto) {
-        this.idProyecto = idProyecto;
-    }
-
-    public String getDescripcionBitacora() {
-        return descripcionBitacora;
-    }
-
-    public void setDescripcionBitacora(String descripcionBitacora) {
-        this.descripcionBitacora = descripcionBitacora;
-    }
-
-    public Idfotografia getIdFoto() {
-        return idFoto;
-    }
-
-    public void setIdFoto(Idfotografia idFoto) {
-        this.idFoto = idFoto;
-    }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
 
 }
