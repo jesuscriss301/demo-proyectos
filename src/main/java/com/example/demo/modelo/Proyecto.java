@@ -30,7 +30,7 @@ public class Proyecto {
 
     @ManyToOne
     @JoinColumn(name = "diseño")
-    private Diseño diseño;
+    private Diseño diseno;
 
     @ManyToOne
     @JoinColumn(name = "presupuesto")

@@ -55,7 +55,7 @@ public class ProyectoController {
             proyectoReturn.setDescripcionProyecto(proyecto.getDescripcionProyecto());
             proyectoReturn.setResponsable(proyecto.getResponsable());
             proyectoReturn.setAreaTerreno(proyecto.getAreaTerreno());
-            //proyectoReturn.setDiseño(proyecto.getDiseño());
+            proyectoReturn.setDiseno(proyecto.getDiseno());
             proyectoReturn.setPresupuesto(proyecto.getPresupuesto());
 
             proyectoRepository.save(proyectoReturn);
@@ -64,7 +64,6 @@ public class ProyectoController {
 
         return null;
     }
-
 
     @DeleteMapping("/{id}")
     public Proyecto deleteProyectobyId(@PathVariable int id) {

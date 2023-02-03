@@ -16,8 +16,8 @@ public class Diseño {
 
 
     @Id
-    @SequenceGenerator(name="diseño_id_seq", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="diseño_id_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Integer id;
 
     @Column(name = "nombreDiseño")
