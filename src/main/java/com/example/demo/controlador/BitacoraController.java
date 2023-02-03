@@ -35,13 +35,11 @@ public class BitacoraController {
         return null;
     }
 
-
     @PostMapping
     public Bitacora postBitacora(@RequestBody Bitacora bitacora) {
         bitacoraRepository.save(bitacora);
         return bitacora;
     }
-
 
     @PutMapping("/{id}")
     public Bitacora putBitacorabyId(@PathVariable int id, @RequestBody Bitacora bitacora) {

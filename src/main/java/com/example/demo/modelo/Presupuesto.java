@@ -1,6 +1,7 @@
 package com.example.demo.modelo;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,26 +10,26 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
+@Data
 @Table(name = "presupuesto")
 public class Presupuesto {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idProyecto", nullable = false)
+    @Column(name = "id_presupuesto")
     private Integer id;
 
-    @Column(name = "cotizacion", nullable = false)
+    @Column(name = "cotizacion")
     private Integer cotizacion;
 
-    @Lob
-    @Column(name = "personal", nullable = false)
+    @Column(name = "personal")
     private String personal;
 
-    @Lob
-    @Column(name = "material", nullable = false)
+    @Column(name = "material")
     private String material;
 
-    @Column(name = "fecha", nullable = false)
+    @Column(name = "fecha")
     private LocalDate fecha;
-
 
 }

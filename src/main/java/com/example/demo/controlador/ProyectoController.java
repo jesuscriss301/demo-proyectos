@@ -55,7 +55,7 @@ public class ProyectoController {
             proyectoReturn.setDescripcionProyecto(proyecto.getDescripcionProyecto());
             proyectoReturn.setResponsable(proyecto.getResponsable());
             proyectoReturn.setAreaTerreno(proyecto.getAreaTerreno());
-            proyectoReturn.setDiseño(proyecto.getDiseño());
+            //proyectoReturn.setDiseño(proyecto.getDiseño());
             proyectoReturn.setPresupuesto(proyecto.getPresupuesto());
 
             proyectoRepository.save(proyectoReturn);

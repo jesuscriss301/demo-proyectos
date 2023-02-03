@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("/diseños")
+@RequestMapping("/planos")
 public class DiseñoController {
 
     @Autowired
@@ -31,7 +31,6 @@ public class DiseñoController {
         if (diseño.isPresent()) {
             return diseño.get();
         }
-
         return null;
     }
 

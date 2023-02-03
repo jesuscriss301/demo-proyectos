@@ -1,39 +1,41 @@
 package com.example.demo.modelo;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@Data
 @Table(name = "proyecto")
 public class Proyecto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idProyecto", nullable = false)
+    @Column(name="id")
     private Integer id;
 
-    @Column(name = "nombreProyecto", nullable = false, length = 30)
+    @Column(name = "nombreProyecto")
     private String nombreProyecto;
 
-    @Lob
-    @Column(name = "descripcionProyecto", nullable = false)
+    @Column(name = "descripcionProyecto")
     private String descripcionProyecto;
 
-    @Column(name = "responsable", nullable = false, length = 30)
+    @Column(name = "responsable")
     private String responsable;
 
-    @Column(name = "areaTerreno", nullable = false)
+    @Column(name = "areaTerreno")
     private Integer areaTerreno;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "`diseño`")
+    @ManyToOne
+    @JoinColumn(name = "diseño")
     private Diseño diseño;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "presupuesto")
     private Presupuesto presupuesto;
+
 
 
 }

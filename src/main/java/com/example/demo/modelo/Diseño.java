@@ -1,6 +1,7 @@
 package com.example.demo.modelo;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,23 +10,27 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-@Table(name = "`diseño`")
+@Data
+@Table(name = "diseño")
 public class Diseño {
+
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "`idDiseño`", nullable = false)
+    @SequenceGenerator(name="diseño_id_seq", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="diseño_id_seq")
     private Integer id;
 
-    @Column(name = "`nombreDiseño`", nullable = false, length = 50)
+    @Column(name = "nombreDiseño")
     private String nombreDiseño;
 
-    @Column(name = "direccionCarpeta", nullable = false, length = 500)
+    @Column(name = "direccionCarpeta")
     private String direccionCarpeta;
 
-    @Column(name = "`fechaDiseño`", nullable = false)
+    @Column(name = "fechaDiseño")
     private LocalDate fechaDiseño;
 
-    @Column(name = "aprovado", nullable = false)
+    @Column(name = "aprovado")
     private Boolean aprovado = false;
+
 
 }

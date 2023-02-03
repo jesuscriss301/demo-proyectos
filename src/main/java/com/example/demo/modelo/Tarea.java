@@ -1,6 +1,7 @@
 package com.example.demo.modelo;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,33 +10,35 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
+@Data
 @Table(name = "tarea")
 public class Tarea {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idTarea", nullable = false)
+    @Column(name = "id_Tarea")
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idProyecto", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "id_Proyecto")
     private Proyecto idProyecto;
 
-    @Column(name = "nombreTarea", nullable = false, length = 30)
+    @Column(name = "nombreTarea")
     private String nombreTarea;
 
     @Lob
-    @Column(name = "descripcionTarea", nullable = false)
+    @Column(name = "descripcionTarea")
     private String descripcionTarea;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idEtapa", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "id_etapa")
     private Etapa idEtapa;
 
-    @Column(name = "completado", nullable = false)
-    private Boolean completado = false;
+    @Column(name = "completado")
+    private Boolean completado;
 
-    @Column(name = "fecha", nullable = false)
+    @Column(name = "fecha")
     private LocalDate fecha;
-
 
 }
