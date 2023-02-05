@@ -5,6 +5,7 @@ import com.example.demo.vista.TareaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,13 +16,23 @@ public class TareaController {
 
     @Autowired
     TareaRepository tareaRepository;
-
-
     @GetMapping
     public List<Tarea> getTareaAll() {
         return tareaRepository.findAll();
     }
 
+    @GetMapping("/proyectos/{id}")
+    public List<Tarea> getTareaProyecto(@PathVariable int id) {
+        List<Tarea> tareas = tareaRepository.findAll();
+        List<Tarea> tareaProyecto = new ArrayList<Tarea>();
+        for (Tarea i : tareas) {
+            if (i.getIdProyecto().getId()==id){
+                tareaProyecto.add(i);
+
+            }
+        }
+         return tareaProyecto;
+    }
 
     @GetMapping("/{id}")
     public Tarea getTareabyId(@PathVariable int id) {

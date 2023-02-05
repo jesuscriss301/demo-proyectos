@@ -1,10 +1,12 @@
 package com.example.demo.controlador;
 
 import com.example.demo.modelo.Bitacora;
+import com.example.demo.modelo.Tarea;
 import com.example.demo.vista.BitacoraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,12 +18,22 @@ public class BitacoraController {
     @Autowired
     BitacoraRepository bitacoraRepository;
 
-
     @GetMapping
     public List<Bitacora> getBitacoraAll() {
         return bitacoraRepository.findAll();
     }
 
+    @GetMapping("/tareas/{id}")
+    public List<Bitacora> getBitacoraAll(@PathVariable int id) {
+        List<Bitacora> bitacora = bitacoraRepository.findAll();
+        List<Bitacora> bitacoratarea = new ArrayList<Bitacora>();
+        for (Bitacora i : bitacora) {
+            if (i.getIdTarea().getId()==id){
+                bitacoratarea.add(i);
+            }
+        }
+        return bitacoratarea;
+    }
 
     @GetMapping("/{id}")
     public Bitacora getBitacorabyId(@PathVariable int id) {
