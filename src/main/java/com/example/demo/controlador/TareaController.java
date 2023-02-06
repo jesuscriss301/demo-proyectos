@@ -28,7 +28,6 @@ public class TareaController {
         for (Tarea i : tareas) {
             if (i.getIdProyecto().getId()==id){
                 tareaProyecto.add(i);
-
             }
         }
          return tareaProyecto;
